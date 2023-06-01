@@ -16,7 +16,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         this.connection = connection;
     }
 @Override
-    public void create(Employee employee) throws SQLException {
+    public void addEmployee(Employee employee) throws SQLException {
         try (
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO employee(first_name, last_name, gender, age, city_id) VALUES (?, ?, ?, ?, ?)"))
         {
@@ -56,6 +56,24 @@ public class EmployeeDAOImpl implements EmployeeDAO {
                 }
             return result;
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Override
+    public void update(int id, Employee employee) throws SQLException {
+        try (
+                PreparedStatement preparedStatement = connection.prepareStatement(
+               "UPDATE employee SET first_name = (?), last_name = (?), gender = (?), age = (?), city_id = (?) WHERE id = (?)"))
+        {
+            preparedStatement.setString(1, employee.getFirst_name());
+            preparedStatement.setString(2, employee.getLast_name());
+            preparedStatement.setString(3, employee.getGender());
+            preparedStatement.setInt(4, employee.getAge());
+            preparedStatement.setInt(5, employee.getCity_id());
+            preparedStatement.setInt(6, id);
+            preparedStatement.executeUpdate();
+        }
+        catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
