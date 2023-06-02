@@ -1,7 +1,5 @@
 package dao;
-
 import model.Employee;
-
 import java.sql.SQLException;
 import java.util.List;
 

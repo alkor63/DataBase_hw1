@@ -36,7 +36,7 @@ public class Application {
                 int age = resultSet.getInt("age");
 
                 // Выводим данные в консоль
-                System.out.print(name1 + " " + name2 + " " + m_f);
+                System.out.print(name1 + " " + name2 + "  " + m_f);
                 System.out.println(" age = " + age);
             }
 

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Employee {
 private Integer id;
 private String first_name;
