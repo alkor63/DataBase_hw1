@@ -42,11 +42,11 @@ public class Application {
 
             EmployeeDAOImpl employeeDAO = new EmployeeDAOImpl(connection);
 
-            employeeDAO.deleteById(3);
-            employeeDAO.addEmployee(new Employee("tema", "ilin", "male", 9, 3));
+            employeeDAO.deleteById(16);
+//            employeeDAO.addEmployee(new Employee("tema", "ilin", "male", 9, 3));
             employeeDAO.findAll().forEach(System.out::println);
             Employee employee = employeeDAO.findById(5);
-            employee.setLast_name("diminson");
+            employee.setLastName("diminson");
             employeeDAO.update(5, employee);
             System.out.println(employeeDAO.findById(5));
         }
