@@ -1,4 +1,5 @@
 package model;
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,13 +21,13 @@ public class Employee {
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
-private String lastName;
+    private String lastName;
 
-private String gender;
+    private String gender;
 
-private int age;
+    private int age;
     @Column(name = "city_id")
-private int cityId;
+    private int cityId;
 
     public Employee(String firstName, String lastName, String gender, int age, int cityId) {
         this.firstName = firstName;
@@ -47,14 +48,15 @@ private int cityId;
         this.age = age;
         this.cityId = cityId;
     }
-        public static Employee create(ResultSet resultSet) throws SQLException {
-    Employee employee = new Employee();
-    employee.setId(resultSet.getInt("id"));
-    employee.setFirstName(resultSet.getString("first_name"));
-    employee.setLastName(resultSet.getString("last_name"));
-    employee.setGender(resultSet.getString("gender"));
-    employee.setAge(resultSet.getInt("age"));
-    employee.setCityId(resultSet.getInt("city_id"));
-    return employee;
-}
+
+    public static Employee create(ResultSet resultSet) throws SQLException {
+        Employee employee = new Employee();
+        employee.setId(resultSet.getInt("id"));
+        employee.setFirstName(resultSet.getString("first_name"));
+        employee.setLastName(resultSet.getString("last_name"));
+        employee.setGender(resultSet.getString("gender"));
+        employee.setAge(resultSet.getInt("age"));
+        employee.setCityId(resultSet.getInt("city_id"));
+        return employee;
+    }
 }
