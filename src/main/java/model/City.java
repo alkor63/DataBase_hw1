@@ -3,22 +3,31 @@ package model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
+
 @Getter
 @Setter
 
+@Entity
+@Table(name = "city")
 public class City {
-    private Integer city_id;
-    private String city_name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "city_id")
+    private Integer cityId;
+    @Column(name = "city_name")
+    private String cityName;
 
     public City() {
     }
 
     public City(String city_name) {
-        this.city_name = city_name;
+        this.cityName = cityName;
     }
 
-    public City(Integer city_id, String city_name) {
-        this.city_id = city_id;
-        this.city_name = city_name;
+    public City(Integer cityId, String cityName) {
+        this.cityId = cityId;
+        this.cityName = cityName;
     }
 }
