@@ -13,6 +13,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public void create(Employee employee) {
+
         try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();) {
             Transaction transaction = session.beginTransaction();
             session.save(employee);
@@ -28,7 +29,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     @Override
     public List<Employee> findAll() {
         return (List<Employee>) HibernateSessionFactoryUtil
-                .getSessionFactory().openSession().createQuery("From Employee ").list();
+                .getSessionFactory().openSession().createQuery("FROM Employee ").list();
     }
 
     @Override

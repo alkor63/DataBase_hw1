@@ -20,13 +20,19 @@ public class Application {
         for (Employee employee : list) {
             System.out.println(employee);
         }
-        Employee employee2 = new Employee("Ruslan", "Ludmilin", "male", 33, 4);
+        Employee employee2 = new Employee(18,"Ruslan", "Ludmilin", "male", 33, 4);
         // Изменяем объект
         employeeDAO.update(employee2);
         System.out.println(employee2);
+
+        employee2 = employeeDAO.findById(19);
         // Удаляем объект
         employeeDAO.deleteEmployee(employee2);
-
+        //смотрим что получилось
+        list = employeeDAO.findAll();
+        for (Employee employee : list) {
+            System.out.println(employee);
+        }
     }
 }
 

@@ -46,4 +46,15 @@ public class Employee {
         this.cityId = cityId;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", Имя: '" + firstName + '\'' +
+                ", Фамилия: '" + lastName + '\'' +
+                ", пол: '" + gender + '\'' +
+                ", возраст: " + age +
+                " лет, cityId = " + cityId +
+                '}';
+    }
 }
