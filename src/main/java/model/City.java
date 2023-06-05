@@ -34,4 +34,13 @@ public class City {
         this.cityId = cityId;
         this.cityName = cityName;
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "город " + cityId +
+                " - " + cityName +
+                ", сотрудники: " + employeeList +
+                '}';
+    }
 }

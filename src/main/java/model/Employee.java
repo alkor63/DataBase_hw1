@@ -55,7 +55,6 @@ public class Employee {
                 ", Фамилия: '" + lastName + '\'' +
                 ", пол: '" + gender + '\'' +
                 ", возраст: " + age +
-                " лет, city: " + city.getCityId()+" - "+city.getCityName() +
-                '}';
+                " лет }";
     }
 }
