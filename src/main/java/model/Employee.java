@@ -15,35 +15,36 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
     private String gender;
 
     private int age;
-    @Column(name = "city_id")
-    private int cityId;
+    @ManyToOne()
+    @JoinColumn(name = "city_id")
+    private City city;
 
-    public Employee(String firstName, String lastName, String gender, int age, int cityId) {
+    public Employee(String firstName, String lastName, String gender, int age, City city) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
-        this.cityId = cityId;
+        this.city = city;
     }
 
     public Employee() {
     }
 
-    public Employee(Integer id, String firstName, String lastName, String gender, int age, int cityId) {
+    public Employee(Integer id, String firstName, String lastName, String gender, int age, City city) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
         this.age = age;
-        this.cityId = cityId;
+        this.city = city;
     }
 
     @Override
@@ -54,7 +55,6 @@ public class Employee {
                 ", Фамилия: '" + lastName + '\'' +
                 ", пол: '" + gender + '\'' +
                 ", возраст: " + age +
-                " лет, cityId = " + cityId +
-                '}';
+                " лет }";
     }
 }
